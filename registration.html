@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/style/registration.css">
+</head>
+
+<body>
+  <div class="loginbox">
+    <img src="/images/user1.png" class="user">
+    <h1>Register Now</h1>
+    <form action="Registration.php" method="post">
+      <p>Username</p>
+      <input type="text" placeholder="Enter Username" id="email" required>
+      <p>Password</p>
+      <input type="password" placeholder="Enter Password" id="psw" required><br>
+      <p>Re type Password</p>
+      <input type="password" placeholder="Re type Password" id="pswrepeat" required><br>
+      <input type="submit" value="Register" onclick="save()" class="registerbtn"><br>
+      <a href="#"> Forget Password</a><br>
+      <a href="registration.html"> Don't have an account</a>
+
+    </form>
+  </div>
+  <script>
+    function save() {
+      debugger;
+      var a = document.getElementById('email').value;
+      var b = document.getElementById('psw').value;
+      var c = document.getElementById('pswrepeat').value;
+      $.ajax({
+        url: "Registration.php",
+        type: "Post",
+        data: { Email: a, pswd: b, pswdrepeat: c },
+        success: function (data) {
+          debugger;
+          if (data = 1) {
+            alert("success");
+          }
+          else {
+            alert("fail")
+          }
+        }
+      }
+
+      )
+    }
+  </script>
+</body>
+
+</html>
